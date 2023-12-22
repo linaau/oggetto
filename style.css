@@ -1,0 +1,14 @@
+body{
+    background-image: url(background.jpg);
+    background-size: cover;
+}
+
+
+header{
+    position:fixed;
+	width: 100%;
+	background: #E2BA03;
+	height: 70px;
+    background:#E2BA03 url(logo.png) no-repeat 50%;
+}
+
