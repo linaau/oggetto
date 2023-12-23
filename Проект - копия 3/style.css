@@ -1,0 +1,128 @@
+:root {
+  --text-color-dark: #2A2A2A;
+  --bg-about-dark: #312F2E;
+  --gray-color: #B3B3B3;
+  --light-orange-color: #ECD3CA;
+  --pink-color: #FF3451;
+  --light-gray: #F7F7F7;
+  --white-color: #ffffff;
+  --light-green-color: #BCD1AA;
+}
+
+form {
+  position: relative;
+  margin: 0 auto;
+}
+
+.item-image{
+  left: 0px;
+  top: 0px;
+  position: absolute;
+}
+.form {
+  width: 100%;
+  height: 82px;
+  background-color: #ffffff;
+  align-items: center;
+  text-align: center;
+  padding-top: 1px;
+  padding-bottom: 20px;
+}
+.form1 {
+  margin-left: 38%;
+  width: 26%;
+  height: 42px;
+  background-color: #ffffff;
+  text-align: left;
+  padding-top: -12px;
+  position: absolute;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.form-text {
+  width: 30%;
+  margin-left: 35%;
+}
+
+::placeholder {
+  color: rgb(0, 0, 0);
+  background: none;
+}
+
+.item-KnMenu{
+  bottom: 660px;
+  left: 1340px;
+  position: absolute;
+}
+
+.item-KnAkk{
+  bottom: 630px;
+  left: 1380px;
+  position: absolute;
+}
+
+.items .item .item-image {
+
+  position: relative;
+}
+
+.items .item .item-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.items .item-image .overlay-actions .actions a {
+  color: var(--white-color);
+  border: 1px solid var(--white-color);
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+.items .item-image .overlay-actions .actions a:hover {
+  color: var(--text-color-dark);
+  background: var(--white-color);
+}
+
+.items .item .item-image .overlay-actions {
+  width: 100%;
+  height: 100%;
+  background: rgba(24, 24, 24, 0.6);
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  transition: all 0.25s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.items .item-image:hover .overlay-actions {
+  opacity: 1;
+}
+
+.items .item-image .overlay-actions .actions {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.items .item-image .overlay-actions .actions a {
+  color: var(--white-color);
+  border: 1px solid var(--white-color);
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+.items .item-image .overlay-actions .actions a:hover {
+  color: var(--text-color-dark);
+  background: var(--white-color);
+}
