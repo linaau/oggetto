@@ -1,18 +1,19 @@
 # на все странички, которые не могут просматриваться неавторизованным человеком накладывается декоратор @login_required
 
-from flask import Flask, render_template, url_for, request, redirect, flash
+from flask import Flask, render_template, url_for, request, redirect, flash, Response
 from flask_login import LoginManager, login_user, login_required, logout_user, UserMixin
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
-
 from werkzeug.security import check_password_hash, generate_password_hash
+import cv2
+
 
 site = Flask(__name__)
 site.secret_key = 'bara bara bara bere bere bere'
 site.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
 db = SQLAlchemy(site)
 manager = LoginManager(site)
-
+camera = cv2.VideoCapture(0)
 
 class Users(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
@@ -23,13 +24,24 @@ class Users(db.Model, UserMixin):
     password = db.Column(db.String(128), nullable=False)
     login = db.Column(db.String(255), nullable=False, unique=True)
 
+def generate_frames():
+    while True:
+        #  read the camera frame
+        success,frame=camera.read()
+        if not success:
+            break
+        else:
+            ret,buffer=cv2.imencode('.jpg', frame)
+            frame=buffer.tobytes()
+        yield(b'--frame\r\n'
+                    b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
+
 
 @manager.user_loader
 def load_user(user_id):
     return Users.query.get(user_id)
 
-    # def __repr__(self):
-    #     return '<Article %r>' % self.id
+
 
 
 @site.route('/main')
@@ -96,6 +108,14 @@ def registration_page():
 
             return redirect(url_for('login_page'))
     return render_template('registration.html')
+
+@site.route('/meeting')
+def meeting():
+    return render_template('meeting.html')
+
+@site.route('/video')
+def video():
+    return Response(generate_frames(),mimetype='multipart/x-mixed-replace; boundary=frame')
 
 
 # @site.route('/posts')
