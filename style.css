@@ -9,27 +9,15 @@
   --light-green-color: #BCD1AA;
 }
 
-body{
-  font-family: 'Montserrat', sans-serif;
-  color: #2A2A2A;
-  background-image: url(background.jpg);
-  background-size: cover;
-  background-position: center 0px;
-}
-
-.btn {
-  background: var(--text-color-dark);
-  color: var(--white-color);
-  text-transform: capitalize;
-  font-size: 20px;
-  text-align: center;
-  display: inline-block;
-  box-shadow: 0 0 var(--blur-shadow) var(--box-shadow-btn);
-}
-
 form {
   position: relative;
   margin: 0 auto;
+}
+
+.item-image1{
+  left: 0px;
+  top: 0px;
+  position: absolute;
 }
 
 .form {
@@ -42,21 +30,15 @@ form {
   padding-bottom: 20px;
 }
 
-.form p {
-  margin-top: 20px;
-  font-size: 16px;
-  margin-bottom: 56px;
+.row {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
 }
 
 .form-text {
-  width: 10%;
+  width: 30%;
   margin-left: 35%;
-}
-
-.item-image{
-  left: 0px;
-  top: 0px;
-  position: absolute;
 }
 
 .item-KnMenu{
@@ -69,4 +51,65 @@ form {
   bottom: 630px;
   left: 1380px;
   position: absolute;
+}
+
+.items .item .item-image {
+
+  position: relative;
+}
+
+.items .item .item-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.items .item-image .overlay-actions .actions a {
+  color: var(--white-color);
+  border: 1px solid var(--white-color);
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+.items .item-image .overlay-actions .actions a:hover {
+  color: var(--text-color-dark);
+  background: var(--white-color);
+}
+
+.items .item .item-image .overlay-actions {
+  width: 100%;
+  height: 100%;
+  background: rgba(24, 24, 24, 0.6);
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  transition: all 0.25s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.items .item-image:hover .overlay-actions {
+  opacity: 1;
+}
+
+.items .item-image .overlay-actions .actions {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.items .item-image .overlay-actions .actions a {
+  color: var(--white-color);
+  border: 1px solid var(--white-color);
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+.items .item-image .overlay-actions .actions a:hover {
+  color: var(--text-color-dark);
+  background: var(--white-color);
 }
