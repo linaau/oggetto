@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Posts
+{% endblock %}
+
+{% block some_text %}
+<div class = "container mt-5">
+  <h1 style="text-align: center; margin-bottom: 50px">Все лекторы на сайте</h1>
+  {% for el in lectors %}
+  <div class="alert alert-info" style="background: LightGrey; border: #1A1A1A">
+    <h2>{{el.lector_name}}</h2>
+    <p>{{el.discipline}}</p>
+    <p>{{el.description}}</p>
+    <a href = "/lectors/{{ el.id }}"class = "btn btn-warning">Детальнее</a>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

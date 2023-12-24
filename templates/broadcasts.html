@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Main Page
+{% endblock %}
+
+{% block some_text %}
+<h1 style="text-align: center">Здесь будут трансляции</h1>
+
+    {% for el in lecture %}
+    <br><br>
+<div style="display: flex;
+    align-items: center;
+    justify-content: center;">
+    <iframe width="560" height="315" src="{{ current_lecture.linkForBroadcast }}" title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+<br><br><br>
+<div>
+    <h2 style="text-align: left">Имя лектора: {{ el.lecturerName }}</h2>
+</div>
+<div>
+    <h2 style="text-align: left">Курс: {{ el.discipline }}</h2>
+</div>
+<div>
+    <h2 style="text-align: left">Название: {{ el.nameOfBroadcast }}</h2>
+</div>
+<div>
+    <h2 style="text-align: left">Время: {{ el.time }}</h2>
+</div>
+<br><br><br>
+<div>
+    <h2 style="text-align: left">Описание: {{ el.description }}</h2>
+</div>
+{% endblock %}
